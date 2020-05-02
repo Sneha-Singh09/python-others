@@ -1,0 +1,10 @@
+import socket
+c=socket.socket()
+c.connect(('localhost',8990))
+o=str(input('operation to be performed:'))
+c.send(bytes(o,'utf-8'))
+a=int(input('Enter the 1st no.:'))
+c.send(bytes(str(a),'utf-8'))
+b=int(input('Enter the 2nd no.:'))
+c.send(bytes(str(b),'utf-8'))
+print('ans :',c.recv(1024).decode())
